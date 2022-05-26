@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Nuevo Ticket</title>
+<link rel="stylesheet" href="/css/bootstrap.min.css">
+<script src="/scripts/bootstrap.bundle.min.js"></script>
+    <script src="/scripts/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+
+<div class="container" Style="background: rgb(101, 148, 236)">
+	<div class="jumbotron">
+                <h1 class="display-4">Bienvenido al Sistema de tickets.</h1>
+                <p class="lead">
+                    Tickets Registrados
+                </p>
+                <hr class="my-4">
+                <div class="row">
+                <div class="col-3"></div>
+                <div class="col-6">
+    <h4>Ingrese los datos solicitados.</h4>
+    <br />
+    <img id="imagen" src="/Fotos/lista.jpg" class="centrar" style="max-width: 17%; width: auto; height: auto; align-content: center">
+    </div>
+    <div class="col-3"></div>
+    </div>
+    <br />
+
+<div th:if="*{error != null}" 
+						class="alert alert-warning alert-dismissible fade show"
+						role="alert">
+						<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="close"></button>
+						<h4 th:text=*{error}></h4>
+					</div>
+<form action="#" th:action="@{agregar}" th:object="${ticket}" method="post">
+        <br>
+    <div id="contenido">
+        <div class="row">
+            <div class="col-3"></div>
+            <div class="col-6">
+                <b>
+                </b>
+                <label for="nombreproyecto" class="form-label">Nombre del sistema :</label>
+                        <input type="text" required="required" th:field="*{nombresistema}" name="nombresistema" class="form-control" placeholder="Sicot">
+                <br>
+
+            </div>
+            <div class="col-3"></div>
+        </div>
+
+        <div class="row">
+            <div class="col-3"></div>
+            <div class="col-6">
+                <b>
+                </b>
+                
+                 <label for="responsable" class="form-label">Descripcion:</label>
+                        <input type="text" required="required" th:field="*{descripcion}" name="descripcion" class="form-control" placeholder="Maximo 30 caracteres">
+                <br>
+
+            </div>
+            <div class="col-3"></div>
+        </div>
+
+        
+
+        
+
+            <div class="row">
+                <div class="col-3"></div>
+                <div class="col-6">
+                <div class="form-group">
+                <button type="submit" id="btn1" class="btn btn-primary btn-lg">Registrar</button>
+					<a th:href="@{/ticket/listar}" class="btn btn-primary">Mostrar tickets registrados</a>
+					</div>
+                    
+                </div>
+                <div class="col-3"></div>
+            </div>
+        </form>
+        <br><br>
+        <div class="row">
+        	<div class="col-3"></div>
+        	<div class="col-6">
+        <div class="form-group">
+					
+				</div>
+				</div>
+				<div class="col-3"></div>
+				</div>
+				<div class="row">
+                    <div class="col-2"> </div>
+                    <div class="col-8">
+                    </div>
+                    <div class="col-2"> </div>
+                </div>
+            </div>
+
+   </div> 
+</div>
+</body>
+</html>

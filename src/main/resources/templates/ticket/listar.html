@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Tickets</title>
+<link rel="stylesheet" href="/css/bootstrap.min.css">
+<script src="/scripts/bootstrap.bundle.min.js"></script>
+    <script src="/scripts/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+<div class="container" Style="background: rgb(101, 148, 236)">
+<div class="jumbotron">
+                <h1 class="display-4">Bienvenido al Sistema de tickets.</h1>
+                <p class="lead">
+                    Tickets Registrados.
+                </p>
+                <hr class="my-4">
+                <div class="row">
+                <div class="col-5"></div>
+                <div class="col-4">
+        <img id="imagen" src="/Fotos/list.png" class="centrar" style="max-width: 29%; width: auto; height: auto; align-content: center">
+        </div>
+        <div class="col-3"></div>
+        </div>
+        
+        
+        <div class="row">
+        	<div Class="col-1"></div>
+        	<div Class="col-10">
+        <a th:href="@{/ticket/agregar}" class="btn btn-primary">Nuevo ticket</a>
+        </div>
+        <div Class="col-1"></div>
+        </div>
+
+<div class="row">
+    <div class="col-1"></div>
+    <div class="col-10">
+        <div id="contenido">
+            <table class="table table-striped">
+                <thead>
+                	<tr>
+                		
+                		<th>Sistema Reportado</th>
+                		<th>Descripcion</th>
+                		<th>Respuesta</th>
+                	</tr>
+                </thead>
+                	<tbody>
+                		<tr th:each="ticket:${ticket}">
+                			
+                			<td th:text="${ticket.nombresistema}"></td>
+                			<td th:text="${ticket.descripcion}"></td>
+                			<td th:text="${ticket.respuesta}"></td>
+                			
+                		</tr>
+                	</tbody>
+
+            </table>
+            </div>
+        </div>
+    <div class="col-1"></div>
+</div>
+	<div>
+                <div class="row">
+                    <div class="col-2"> </div>
+                    <div class="col-8">
+                        <p>Proyecto Desarrollo de Aplicaciones Web.</p>
+                        <p>Integrantes: Alfonso Carmona Carmona. Arturo Ivan Gónzalez Conde Brandon Cruz Lobato.</p>
+                        <p>ITSSNP 2022</p>
+                    </div>
+                    <div class="col-2"> </div>
+                </div>
+            </div>
+</div>
+</div>
+</body>
+</html>

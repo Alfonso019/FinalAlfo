@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Agregar usuario</title>
+<link rel="stylesheet" href="/css/bootstrap.min.css">
+<script src="/scripts/bootstrap.bundle.min.js"></script>
+    <script src="/scripts/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+<div class="container" Style="background: rgb(101, 148, 236)">
+            <div class="jumbotron">
+                <h1 class="display-4">Registro de usuarios nuevos.</h1>
+                <p class="lead">
+                    Introduce los datos de registro.
+                </p>
+                <hr class="my-4">
+                <p class="text-danger">*Todos los datos son obligatorios.</p>
+			<div class="row">
+				<div class="col-3"></div>
+				<div class="col-6">
+					<div th:if="*{error != null}" 
+						class="alert alert-warning alert-dismissible fade show"
+						role="alert">
+						<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="close"></button>
+						<h4 th:text=*{error}></h4>
+					</div>
+					
+				<img id="imagen" src="/Fotos/vectoradmin.png" class="centrar" style="max-width: 35%; width: auto; height: auto; align-content: center">
+				
+				<form action="#" th:action="@{agregar}" th:object="${usuario}" method="post">
+                    <fieldset>
+                        <legend>Registro de Usuarios.</legend>
+
+                        <label for="Nombre" class="form-label">Nombre Completo:</label>
+                        <input type="text" required="required" th:field="*{nombrecompleto}" th:value="*{nombrecompleto}" class="form-control" placeholder="Alfonso Carmona">
+                        <br />
+                        
+                        <label for="Correo" class="form-label">Correo Electronico:</label>
+                        <input type="email" required="required" th:value="*{correo}" name="correo" class="form-control" placeholder="ejemplo@gmail.com">
+                        <br />
+                        <label for="tipousuario" class="form-label">Tipo de Usuario:</label>
+                        <select name="tipousuario" th:value="*{tipousuario}" class="form-control">
+                        <option>ADMINISTRADOR</option>
+                        <option>ALUMNO</option>
+                        <option>DOCENTE</option>
+                        </select>
+                        <br />
+                        
+                        <label for="inputPassword5" class="form-label">Password:</label>
+                        <input type="password" required="required" name="clave" class="form-control" aria-describedby="passwordHelpBlock" placeholder="***">
+                        <br> <br>
+
+                        <p style="text-align: center;">
+                            <input type="submit" class=" btn btn-primary" value="Agregar" />
+                            <input type="reset" value="Limpiar" />
+                        </p>
+                    </fieldset>
+                </form>
+				
+				
+			</div>
+			<hr class="my-4">
+            <div>
+                <div class="row">
+                    <div class="col-2"> </div>
+                    <div class="col-8">
+                        <p>Proyecto Desarrollo de Aplicaciones Web.</p>
+                        <p>Integrantes: Alfonso Carmona Carmona. Arturo Ivan Gónzalez Conde Brandon Cruz Lobato.</p>
+                        <p>ITSSNP 2022</p>
+                    </div>
+                    <div class="col-2"> </div>
+                </div>
+            </div>
+        </div>
+     </div>
+</div>
+</body>
+</html>
